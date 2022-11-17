@@ -1,1 +1,4 @@
-Run `k get nodes -o wide`
+Get node list
+```
+k get nodes -o wide
+```{{exec}}
