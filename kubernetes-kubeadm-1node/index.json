@@ -2,6 +2,10 @@
   "title": "Kubernetes 1node",
   "description": "Use a simple one node Kubernetes cluster and let user list all pods",
   "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
     "steps": [
       {
         "title": "List all pods",
