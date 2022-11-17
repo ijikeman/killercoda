@@ -6,4 +6,4 @@ k get nodes -o wide
 # hogehog
 ```
 k get namespaces
-```
+```{{copy}}
