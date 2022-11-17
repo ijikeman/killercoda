@@ -1,0 +1,18 @@
+{
+  "title": "Kubernetes 1node",
+  "description": "Use a simple one node Kubernetes cluster and let user list all pods",
+  "details": {
+    "steps": [
+      {
+        "title": "List all pods",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
