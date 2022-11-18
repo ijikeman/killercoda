@@ -12,7 +12,7 @@ mv ./kind /usr/local/bin/kind
 
 # Setup Kind Config
 echo "Setup kind.yaml" >> ${LOG}
-cat <<EOF > kind.yaml
+cat <<EOF > /tmp/kind.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -28,9 +28,15 @@ nodes:
 - role: worker
 EOF
 
-# Create kind cluster
-echo "Create Kind Cluster" >> ${LOG}
-kind create cluster --config kind.yaml
+# Setup kubectl
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+mv kubectl /usr/local/bin/kubectl
+cat <<EOF >> .bashrc
+alias k=kubectl
+source <(kubectl completion bash)
+complete -F __start_kubectl k
+EOF
 
 echo 'done' > /tmp/background-finished
 echo "Done"
