@@ -1,6 +1,6 @@
 {
-  "title": "Kubernetes 1node",
-  "description": "Use a simple one node Kubernetes cluster and let user list all pods",
+  "title": "kind playground 1controler, 2worker",
+  "description": "Use a two worker node Kind cluster",
   "details": {
     "intro": {
       "text": "intro.md",
