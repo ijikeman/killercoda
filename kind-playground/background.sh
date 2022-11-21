@@ -32,9 +32,9 @@ EOF
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mv kubectl /usr/local/bin/kubectl
-cat <<EOF >> .bashrc
-alias k=kubectl
+cat <<EOF >> ~/.bashrc
 source <(kubectl completion bash)
+alias k=kubectl
 complete -F __start_kubectl k
 EOF
 

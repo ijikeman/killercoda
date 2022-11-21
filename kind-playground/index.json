@@ -1,5 +1,5 @@
 {
-  "title": "kind playground 1controler, 2worker",
+  "title": "kind playground 1controller, 2worker nodes",
   "description": "Use a two worker node Kind cluster",
   "details": {
     "intro": {
