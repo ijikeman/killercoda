@@ -39,8 +39,5 @@ alias k=kubectl
 complete -F __start_kubectl k
 EOF
 
-# Setup Git
-apt-get install git -y
-
 echo 'done' > /tmp/background-finished
 echo "Done"
