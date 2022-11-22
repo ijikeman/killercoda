@@ -3,7 +3,12 @@
 kubectl get nodes -o wide
 ```{{exec}}
 
-# Get Sample Code
+# Get k8s Perfect Guide Sample Code
+```
+git clone https://github.com/MasayaAoyama/kubernetes-perfect-guide.git
+```{{exec}}
+
+# Get ijikeman Sample Code
 ```
 git clone https://github.com/ijikeman/k8s-manifest-test.git
 ```{{exec}}
