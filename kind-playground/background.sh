@@ -33,6 +33,7 @@ curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s ht
 chmod +x kubectl
 mv kubectl /usr/local/bin/kubectl
 cat <<EOF >> ~/.bashrc
+source /usr/share/bash-completion/bash_completion
 source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
