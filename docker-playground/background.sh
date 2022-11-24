@@ -20,6 +20,9 @@ echo \
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
+sudo systemctl enable docker
+sudo systemctl start docker
+
 # Setup Done
 echo 'done' > /tmp/background-finished
 echo "Done"
