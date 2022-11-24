@@ -23,6 +23,10 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl enable docker
 sudo systemctl start docker
 
+# Setup Dockercompose
+sudo apt-get update
+sudo apt-get install docker-compose-plugin
+
 # Setup Done
 echo 'done' > /tmp/background-finished
 echo "Done"
