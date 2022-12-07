@@ -60,7 +60,7 @@ echo "Setup krew Finished" >> ${LOG}
 
 # Setup Stern
 echo "Setup stern" >> ${LOG}
-kubectl krew install stern
+./.krew/bin/kubectl-krew install stern
 echo "Setup stern Finished" >> ${LOG}
 
 # Setup kube-ps1
@@ -68,7 +68,7 @@ echo "Setup kube-ps1" >> ${LOG}
 PS1_VERSION=v0.8.0
 curl https://raw.githubusercontent.com/jonmosco/kube-ps1/${PS1_VERSION}/kube-ps1.sh -o /usr/local/bin/kube-ps1.sh
 echo 'source /usr/local/bin/kube-ps1.sh' >> ~/.bashrc
-echo "PS1='[\u@\h \W $(kube_ps1)]\$ '" >>  ~/.bashrc
+echo "PS1='[\u@\h \W \$(kube_ps1)]\\$ '" >>  ~/.bashrc
 echo "Setup kube-ps1 finished" >> ${LOG}
 
 # Finished
