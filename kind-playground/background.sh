@@ -9,6 +9,7 @@ echo "Setup kind-command" >> ${LOG}
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-amd64
 chmod +x ./kind
 mv ./kind /usr/local/bin/kind
+echo "Setup kind-command Finished" >> ${LOG}
 
 # Setup Kind Config
 echo "Setup kind.yaml" >> ${LOG}
@@ -27,8 +28,10 @@ nodes:
 - role: worker
 - role: worker
 EOF
+echo "Setup kind.yaml Finished" >> ${LOG}
 
 # Setup kubectl
+echo "Setup kubectl" >> ${LOG}
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mv kubectl /usr/local/bin/kubectl
@@ -38,11 +41,11 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
 EOF
+echo "Setup kubectl Finished" >> ${LOG}
 
-echo 'done' > /tmp/background-finished
-echo "Done"
 
 # Setup krew
+echo "Setup krew" >> ${LOG}
 (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
@@ -51,14 +54,23 @@ echo "Done"
   curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
-e
+)
 echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.bashrc
+echo "Setup krew Finished" >> ${LOG}
 
 # Setup Stern
+echo "Setup stern" >> ${LOG}
 kubectl krew install stern
+echo "Setup stern Finished" >> ${LOG}
 
 # Setup kube-ps1
+echo "Setup kube-ps1" >> ${LOG}
 PS1_VERSION=v0.8.0
 curl https://raw.githubusercontent.com/jonmosco/kube-ps1/${PS1_VERSION}/kube-ps1.sh -o /usr/local/bin/kube-ps1.sh
 echo 'source /usr/local/bin/kube-ps1.sh' >> ~/.bashrc
 echo "PS1='[\u@\h \W $(kube_ps1)]\$ '" >>  ~/.bashrc
+echo "Setup kube-ps1 finished" >> ${LOG}
+
+# Finished
+echo 'done' > /tmp/background-finished
+echo "Done"
