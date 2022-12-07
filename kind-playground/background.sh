@@ -58,10 +58,12 @@ echo "Setup krew" >> ${LOG}
 echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.bashrc
 echo "Setup krew Finished" >> ${LOG}
 
-# Setup Stern
-echo "Setup stern" >> ${LOG}
+# Setup krew plugins
+echo "Setup krew plugins" >> ${LOG}
 ./.krew/bin/kubectl-krew install stern
-echo "Setup stern Finished" >> ${LOG}
+./.krew/bin/kubectl-krew install ns
+./.krew/bin/kubectl-krew install ctx
+echo "Setup krew plugins Finished" >> ${LOG}
 
 # Setup kube-ps1
 echo "Setup kube-ps1" >> ${LOG}
